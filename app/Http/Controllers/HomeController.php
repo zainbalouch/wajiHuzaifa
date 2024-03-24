@@ -21,6 +21,7 @@ class HomeController extends Controller
     function loginData(Request $request) {
         $email = $request->email;
         $password = $request->password;
+        $gender = $request->gender;
 
         return view('data', get_defined_vars());
     }

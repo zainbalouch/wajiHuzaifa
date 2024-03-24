@@ -12,6 +12,8 @@
     <div class="container">
         <h1>Your Email is: {{$email}} </h1>
         <h1>YOur Password is: {{$password}} </h1>
+        <h1>And i am {{$gender}} </h1>
     </div>
 </body>
 </html>
+
