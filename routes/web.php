@@ -11,4 +11,3 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'homePage']);
 Route::get('/about', [HomeController::class, 'aboutPage']);
 
-
