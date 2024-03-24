@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>Document</title>
 </head>
 <body>
-    {{-- <h1>My name is: {{$firstName}} {{$lastName}}</h1>
-    <h3>I am {{$age}} years old. And i am {{$gender}}</h3> --}}
-
+    <div class="container">
+        <h1>Your Email is: {{$email}} </h1>
+        <h1>YOur Password is: {{$password}} </h1>
+    </div>
 </body>
 </html>
