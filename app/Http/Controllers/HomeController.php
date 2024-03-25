@@ -22,7 +22,6 @@ class HomeController extends Controller
         $email = $request->email;
         $password = $request->password;
         $gender = $request->gender;
-
         return view('data', get_defined_vars());
     }
 }
