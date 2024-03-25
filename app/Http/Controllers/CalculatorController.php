@@ -15,7 +15,7 @@ class CalculatorController extends Controller
         $fnumber = $request->fnumber;
         $snumber = $request->snumber;
         $operator = $request->operator;
-
+        // dd($request->all());
         try {
             if ($operator == '+') {
                 $result = $fnumber + $snumber;
