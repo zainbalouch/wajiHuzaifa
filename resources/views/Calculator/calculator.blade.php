@@ -49,6 +49,11 @@
                     <h1>Your result is: {{ $result }}</h1>
                 </div>
             @endif
+            @if (isset($error))
+                <div class="row">
+                    <p class="text-danger">An error occured: {{ $error }}</p>
+                </div>
+            @endif
 
         </div>
     </div>
