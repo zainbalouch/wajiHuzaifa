@@ -11,8 +11,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'homePage']);
 Route::get('/login', [HomeController::class, 'loginPage']);
-
 Route::post('/loginData', [HomeController::class, 'loginData']);
+
 
 Route::get('/calculator', [CalculatorController::class, 'calculatorPage']);
 Route::post('/calculator', [CalculatorController::class, 'calculatorResult']);
