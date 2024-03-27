@@ -9,6 +9,12 @@
 
 </head>
 <body>
+    <nav class="navbar navbar-dark bg-dark">
+        <form class="container-fluid justify-content-start">
+            <a class="btn btn-outline-success me-2" type="button" href="{{ URL::to('/') }}">Home</a>
+            <a class="btn btn-outline-success me-2" type="button" href="{{ URL::to('/login') }}">Login</a>
+        </form>
+    </nav>
     <div class="container">
         <h1>Your Email is: {{$email}} </h1>
         <h1>YOur Password is: {{$password}} </h1>

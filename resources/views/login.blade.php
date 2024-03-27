@@ -11,28 +11,39 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-dark bg-dark">
+        <form class="container-fluid justify-content-start">
+            <a class="btn btn-outline-success me-2" type="button" href="{{ URL::to('/') }}">Home</a>
+            <a class="btn btn-outline-success me-2" type="button" href="{{ URL::to('/login') }}">Login</a>
+        </form>
+    </nav>
     <div class="container">
         <h1>Login Page</h1>
         <form action="/loginData" method="post">
             @csrf
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" name="email" class="form-control" placeholder="email">
+                <input type="text" name="email" value="{{old('email')}}" class="form-control" placeholder="email">
+                @error('email')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
                 <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+                @error('password')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
             </div>
             <div class="mb-3">
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" value="male" name="gender">
+                    <input class="form-check-input" type="radio" value="male" name="gender" checked>
                     <label class="form-check-label" for="gender1">
                         Male
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" value="female" name="gender"
-                        checked>
+                    <input class="form-check-input" type="radio" value="female" name="gender" >
                     <label class="form-check-label" for="gender2">
                         Female
                     </label>

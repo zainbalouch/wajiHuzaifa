@@ -19,6 +19,10 @@ class HomeController extends Controller
     }
 
     function loginData(Request $request) {
+        $request->validate([
+            'email' => 'required | email',
+            'password' => 'required | min:8',
+        ]);
         $email = $request->email;
         $password = $request->password;
         $gender = $request->gender;
