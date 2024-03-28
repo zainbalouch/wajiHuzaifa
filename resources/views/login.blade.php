@@ -15,6 +15,8 @@
         <form class="container-fluid justify-content-start">
             <a class="btn btn-outline-success me-2" type="button" href="{{ URL::to('/') }}">Home</a>
             <a class="btn btn-outline-success me-2" type="button" href="{{ URL::to('/login') }}">Login</a>
+            <a class="btn btn-outline-success me-2" type="button" href="{{ URL::to('/add-person') }}">Add Person</a>
+
         </form>
     </nav>
     <div class="container">
@@ -25,14 +27,14 @@
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
                 <input type="text" name="email" value="{{old('email')}}" class="form-control" placeholder="email">
                 @error('email')
-                    <p class="text-danger">{{ $message }}</p>
+                    <p class="text-danger">{{$message}}</p>
                 @enderror
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
                 <input type="password" name="password" class="form-control" id="exampleInputPassword1">
                 @error('password')
-                    <p class="text-danger">{{ $message }}</p>
+                    <p class="text-danger">{{$message}}</p>
                 @enderror
             </div>
             <div class="mb-3">
