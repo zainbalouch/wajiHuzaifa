@@ -19,16 +19,32 @@
         </form>
     </nav>
     <div class="container">
-        <h1>Add new Person</h1>
-        <form action="{{URL::to('/add-person')}}" method="post">
+        <div class="row text-end my-5">
+            <div class="col">
+                <a href="{{URL::to('/list_people')}}" class="btn btn-secondary">View all People</a>
+            </div>
+        </div>
+        <h1 class="my-3"> {{isset($people) ? "Update User" : "Add new Person"}} </h1>
+        <form action="{{isset($people) ? URL::to('/update-person') : URL::to('/add-person')}}" method="post">
             @csrf
+            @if (isset($people))
+                <input type="hidden" name="id" value="{{$people->id}}">
+            @endif
             <div class="mb-3">
                 <label for="name" class="form-label">Name:</label>
-                <input type="text" name="name" class="form-control" placeholder="name">
+                <input type="text" name="name" value="{{isset($people) ? $people->name : ''}}" class="form-control" placeholder="name">
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="text" name="email" class="form-control" placeholder="email">
+                <input type="text" name="email" value="{{isset($people) ? $people->email : ''}}" class="form-control" placeholder="email">
+            </div>
+            <div class="mb-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="1" id="flexCheckChecked" name="isDisabled" {{isset($people) && $people->isDisabled == 1 ? 'checked' : ''}}>
+                    <label class="form-check-label" for="flexCheckChecked">
+                      Are you Disabled
+                    </label>
+                  </div>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

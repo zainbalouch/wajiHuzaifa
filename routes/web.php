@@ -20,4 +20,8 @@ Route::post('/calculator', [CalculatorController::class, 'calculatorResult']);
 
 Route::get('/add-person', [PersonController::class, 'addPersonPage']);
 Route::post('/add-person', [PersonController::class, 'addPerson']);
+Route::post('/update-person', [PersonController::class, 'updatePerson']);
+Route::get('/delete-person', [PersonController::class, 'deletePerson']);
+Route::get('/list_people', [PersonController::class, 'listPeoplePage']);
+
 
