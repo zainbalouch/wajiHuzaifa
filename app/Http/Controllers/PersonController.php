@@ -15,24 +15,32 @@ class PersonController extends Controller
     }
 
     function addPerson(Request $request) {
+        $request->validate([
+            'email' => 'email | required | unique:people'
+
+        ]);
         $people = new People();
         $people->name = $request->name;
         $people->email = $request->email;
+        $people->image = $this->uploadImage($request, 'image');
+
         if (isset($request->isDisabled)) {
             $people->isDisabled = 1;
         } else {
             $people->isDisabled = 0;
         }
-
         $people->save();
         return redirect()->back();
     }
+
+
 
     function updatePerson(Request $request) {
         $id = $request->id;
         $people = People::where('id', $id)->first();
         $people->name = $request->name;
         $people->email = $request->email;
+        $people->image = $this->uploadImage($request, 'image');
         if (isset($request->isDisabled)) {
             $people->isDisabled = 1;
         } else {

@@ -7,31 +7,32 @@ use PhpParser\Node\Stmt\TryCatch;
 
 class CalculatorController extends Controller
 {
-    function calculatorPage() {
-        return view('Calculator.calculator');
+    public function calculator(){
+        return view('calculator');
     }
+    public function calculatorResult(request $request){
+        $fname=$request->fname;
+        $sname=$request->sname;
+        $operator=$request->operator;
+       
+      
 
-    function calculatorResult(Request $request) {
-        $fnumber = $request->fnumber;
-        $snumber = $request->snumber;
-        $operator = $request->operator;
-        // dd($request->all());
         try {
-            if ($operator == '+') {
-                $result = $fnumber + $snumber;
-            } else if ($operator == '-') {
-                $result = $fnumber - $snumber;
-            } else if ($operator == '*') {
-                $result = $fnumber * $snumber;
-            } else {
-                $result = $fnumber / $snumber;
+
+            if($operator=='+'){
+                $result=$fname+$sname;
+            }else if($operator=='-'){
+                $result=$fname-$sname;
+            }else if($operator=='*'){
+                $result=$fname*$sname;
+            }else{
+                $result=$fname/$sname;
             }
+            
         } catch (\Throwable $th) {
-            $result = null;
-            $error = $th->getMessage();
+            $error=$th->getMessage();
         }
 
-
-        return view('Calculator.calculator', get_defined_vars());
+        return view('calculator',get_defined_vars());
     }
 }
