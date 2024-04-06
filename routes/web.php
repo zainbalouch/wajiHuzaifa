@@ -8,6 +8,7 @@ use App\Http\Controllers\AddPeopleController;
 use App\Http\Controllers\AddingPeopleController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\UserController;
+use App\Http\Middleware\ForAuthnticatedUsers;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,8 +49,9 @@ use App\Http\Controllers\UserController;
 
 
 route::get('/',[BlogController::class,'homePage']);
-route::get('/addblog',[BlogController::class,'addblog']);
-route::post('/addblog',[BlogController::class,'storeblog']);
+
+route::get('/addblog',[BlogController::class,'addblog'])->middleware(ForAuthnticatedUsers::class);
+route::post('/addblog',[BlogController::class,'storeblog'])->middleware(ForAuthnticatedUsers::class);
 
 route::get('/viewblog',[BlogController::class,'viewblog']);
 route::get('/blogdetail',[BlogController::class,'blogdetail']);

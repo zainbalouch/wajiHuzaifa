@@ -21,6 +21,10 @@
     </nav>
     <div class="container">
         <h1>Login Page</h1>
+        @if (Session::has('error'))
+        <p class="text-danger">{{Session::get('error')}}</p>
+
+        @endif
         <form action="/loginData" method="post">
             @csrf
             <div class="mb-3">

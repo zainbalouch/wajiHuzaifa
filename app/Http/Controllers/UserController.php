@@ -36,6 +36,8 @@ class UserController extends Controller
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $user = Auth::user();
             return redirect('addblog');
+        } else {
+            return redirect()->back()->with('error', 'Email or Password is Incorrect');
         }
     }
 }

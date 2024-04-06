@@ -13,7 +13,7 @@
     <style>
         body {
             background-color: rgb(118, 171, 174, 0.4);
-          
+
             font-family: Arial, sans-serif;
             color: #EEEEEE;
         }
@@ -64,7 +64,7 @@
 </nav>
 
 <!-- input field -->
-
+<h1 class="text-dark">Welocme Back {{Auth::user()->name}}</h1>
 <div class="container body mt-5 ">
     <h2 class="text-center">Add a Product</h2>
     @if(Session::has('success'))
@@ -97,7 +97,7 @@
             <label for="quantity">Quantity:</label>
             <input type="number" class="form-control" id="quantity" name="quantity" min="1" value="1">
         </div>
-        
+
         <div class="form-group">
             <label for="image">Image</label>
             <input type="file" class="form-control-file" name="img" id="image">
