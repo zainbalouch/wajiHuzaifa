@@ -31,6 +31,17 @@ use App\Http\Middleware\ForAuthnticatedUsers;
 
 // route::post('/registrationData', [registrationController::class, 'registrationData']);
 
+
+
+
+route::get('/',[BlogController::class,'homePage']);
+
+route::get('/addblog',[BlogController::class,'addblog'])->middleware(ForAuthnticatedUsers::class);
+route::post('/addblog',[BlogController::class,'storeblog'])->middleware(ForAuthnticatedUsers::class);
+
+route::get('/viewblog',[BlogController::class,'viewblog']);
+route::get('/blogdetail',[BlogController::class,'blogdetail']);
+
 // route::get('/calculator',[CalculatorController::class,'calculator']);
 // route::post('/calculator',[CalculatorController::class,'calculatorResult']);
 
@@ -46,17 +57,6 @@ use App\Http\Middleware\ForAuthnticatedUsers;
 
 // route::post('/people-update',[AddingPeopleController::class,'peopleupdate']);
 // route::get('/peopledelete',[AddingPeopleController::class,'peopledelete']);
-
-
-route::get('/',[BlogController::class,'homePage']);
-
-route::get('/addblog',[BlogController::class,'addblog'])->middleware(ForAuthnticatedUsers::class);
-route::post('/addblog',[BlogController::class,'storeblog'])->middleware(ForAuthnticatedUsers::class);
-
-route::get('/viewblog',[BlogController::class,'viewblog']);
-route::get('/blogdetail',[BlogController::class,'blogdetail']);
-
-
 
 
 route::get('/login',[UserController::class,'loginPage']);
