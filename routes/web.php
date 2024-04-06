@@ -64,3 +64,20 @@ route::post('/loginData',[UserController::class,'loginData']);
 route::get('/register',[UserController::class,'registerPage']);
 route::post('/registerData',[UserController::class,'registerData']);
 
+
+
+// route::get('/calculator',[CalculatorController::class,'calculator']);
+// route::post('/calculator',[CalculatorController::class,'calculatorResult']);
+
+// route::get('/addPeople',[AddPeopleController::class, 'addPeople']);
+// route::post('/addPeople', [AddPeopleController::class, 'peopleData']);
+// route::get('/list_People', [AddPeopleController::class, 'list_People'] );
+// route::post('/update_people',[AddPeopleController::class, 'update_people']);
+// route::get('/deletepeople',[AddPeopleController::class,'deletepeople']);
+
+// route::get('/people-add',[AddingPeopleController::class, 'peopleadd']);
+// route::post('/people-add', [AddingPeopleController::class,'storepeople']);
+// route::get('/people-list',[AddingPeopleController::class,'peoplelist']);
+
+// route::post('/people-update',[AddingPeopleController::class,'peopleupdate']);
+// route::get('/peopledelete',[AddingPeopleController::class,'peopledelete']);
