@@ -9,6 +9,8 @@ use App\Http\Controllers\AddingPeopleController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\ForAuthnticatedUsers;
+use App\Http\Middleware\ForLoggedInUssers;
+use App\Http\Middleware\ForNotLoggedInUsers;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,8 +52,8 @@ use App\Http\Middleware\ForAuthnticatedUsers;
 
 route::get('/',[BlogController::class,'homePage']);
 
-route::get('/addblog',[BlogController::class,'addblog'])->middleware(ForAuthnticatedUsers::class);
-route::post('/addblog',[BlogController::class,'storeblog'])->middleware(ForAuthnticatedUsers::class);
+route::get('/addblog',[BlogController::class,'addblog'])->middleware(ForLoggedInUssers::class);
+route::post('/addblog',[BlogController::class,'storeblog'])->middleware(ForLoggedInUssers::class);
 
 route::get('/viewblog',[BlogController::class,'viewblog']);
 route::get('/blogdetail',[BlogController::class,'blogdetail']);
@@ -59,8 +61,8 @@ route::get('/blogdetail',[BlogController::class,'blogdetail']);
 
 
 
-route::get('/login',[UserController::class,'loginPage']);
-route::post('/loginData',[UserController::class,'loginData']);
-route::get('/register',[UserController::class,'registerPage']);
-route::post('/registerData',[UserController::class,'registerData']);
+route::get('/login',[UserController::class,'loginPage'])->middleware(ForNotLoggedInUsers::class);
+route::post('/loginData',[UserController::class,'loginData'])->middleware(ForNotLoggedInUsers::class);
+route::get('/register',[UserController::class,'registerPage'])->middleware(ForNotLoggedInUsers::class);
+route::post('/registerData',[UserController::class,'registerData'])->middleware(ForNotLoggedInUsers::class);
 

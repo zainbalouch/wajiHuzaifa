@@ -64,7 +64,9 @@
 </nav>
 
 <!-- input field -->
-<h1 class="text-dark">Welocme Back {{Auth::user()->name}}</h1>
+@if (null !== (Auth::user()))
+   <h1 class="text-dark">Welocme Back {{Auth::user()->name}}</h1>
+@endif
 <div class="container body mt-5 ">
     <h2 class="text-center">Add a Product</h2>
     @if(Session::has('success'))
