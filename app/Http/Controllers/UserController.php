@@ -40,6 +40,10 @@ class UserController extends Controller
             return redirect()->back()->with('error', 'Email or Password is Incorrect');
         }
     }
+    function logout() {
+        Auth::logout();
+        return redirect('/login');
+    }
 }
 
 

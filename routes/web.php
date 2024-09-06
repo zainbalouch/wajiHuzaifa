@@ -60,6 +60,7 @@ route::get('/blogdetail',[BlogController::class,'blogdetail']);
 
 
 
+route::get('/logout',[UserController::class,'logout']);
 
 route::get('/login',[UserController::class,'loginPage'])->middleware(ForNotLoggedInUsers::class);
 route::post('/loginData',[UserController::class,'loginData'])->middleware(ForNotLoggedInUsers::class);
