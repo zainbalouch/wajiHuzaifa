@@ -67,3 +67,6 @@ route::post('/loginData',[UserController::class,'loginData'])->middleware(ForNot
 route::get('/register',[UserController::class,'registerPage'])->middleware(ForNotLoggedInUsers::class);
 route::post('/registerData',[UserController::class,'registerData'])->middleware(ForNotLoggedInUsers::class);
 
+// route::post('/loginData',[UserController::class,'loginData'])->middleware(ForNotLoggedInUsers::class);
+// route::get('/register',[UserController::class,'registerPage'])->middleware(ForNotLoggedInUsers::class);
+// route::post('/registerData',[UserController::class,'registerData'])->middleware(ForNotLoggedInUsers::class);
